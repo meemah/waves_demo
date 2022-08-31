@@ -3,8 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:waves/views/custom_widgets/spacers.dart';
 
 class CustomTextField extends StatelessWidget {
-  final String? Function(String?)? onValidate;
-
   final String fieldName;
   final bool isAutoFocus;
 
@@ -21,7 +19,6 @@ class CustomTextField extends StatelessWidget {
     this.fieldName = "",
     this.isAutoFocus = false,
     this.obscureText = false,
-    required this.onValidate,
     this.controller,
     this.hintText,
     this.onTap,
@@ -52,7 +49,6 @@ class CustomTextField extends StatelessWidget {
                 return TextFormField(
                   readOnly: readOnly,
                   controller: controller,
-                  validator: onValidate,
                   obscureText: show,
                   onTap: onTap,
                   decoration: InputDecoration(
@@ -87,7 +83,7 @@ class CustomTextField extends StatelessWidget {
                           ),
                     hintStyle: TextStyle(
                         fontSize: 13.sp, color: const Color(0xffD2D2D2)),
-                    hintText: hintText == null ? fieldName : hintText,
+                    hintText: hintText ?? fieldName,
                     enabledBorder: outlineInputBorder,
                     contentPadding: const EdgeInsets.symmetric(horizontal: 8.0),
                     border: outlineInputBorder,

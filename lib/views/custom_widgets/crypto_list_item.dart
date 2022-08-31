@@ -21,7 +21,8 @@ class CryptoListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-        elevation: 4,
+        shadowColor: Colors.black38,
+        elevation: 3,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
@@ -31,7 +32,19 @@ class CryptoListItem extends StatelessWidget {
                   backgroundColor: bgColor,
                   child: Text(cryptoSymbol),
                 ),
-                Align(alignment: Alignment.bottomRight, child: Icon(icon))
+                Positioned(
+                    bottom: 2,
+                    right: -5,
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 10,
+                      child: Center(
+                        child: Icon(
+                          icon,
+                          size: 14,
+                        ),
+                      ),
+                    ))
               ]),
               const XMargin(10),
               Column(
@@ -45,7 +58,7 @@ class CryptoListItem extends StatelessWidget {
                   Text(
                     desc,
                     style:
-                        TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+                        TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
                   ),
                 ],
               )

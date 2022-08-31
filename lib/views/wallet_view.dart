@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:waves/views/custom_widgets/custom_textfield.dart';
+import 'package:waves/views/custom_widgets/empty_collapse_menu.dart';
 import 'package:waves/views/custom_widgets/spacers.dart';
 
 import 'custom_widgets/crypto_list_item.dart';
@@ -26,11 +27,15 @@ class WalletView extends StatelessWidget {
                   children: const [
                     Icon(CupertinoIcons.bell),
                     CircleAvatar(
+                      radius: 15,
                       child: Text("MI"),
                     ),
                   ],
                 ),
-                const Text("Wallet"),
+                const Text(
+                  "Wallet",
+                  style: TextStyle(color: Colors.grey),
+                ),
                 Row(
                   children: const [
                     Text(
@@ -51,7 +56,7 @@ class WalletView extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     children: const [
                       HomeItemContainer(
-                        title: "Address",
+                        title: "Your Address",
                         icon: Icons.qr_code,
                         isActive: true,
                       ),
@@ -62,6 +67,10 @@ class WalletView extends StatelessWidget {
                       HomeItemContainer(
                         title: "Balance",
                         switchIcon: true,
+                      ),
+                      HomeItemContainer(
+                        title: "Review",
+                        icon: Icons.arrow_back,
                       ),
                     ],
                   ),
@@ -89,19 +98,18 @@ class WalletView extends StatelessWidget {
                   ],
                 ),
                 Row(
-                  children: [
+                  children: const [
                     Expanded(
                       child: CustomTextField(
                         hintText: "Search",
-                        prefixIcon: const Icon(
+                        prefixIcon: Icon(
                           Icons.search,
                           color: Colors.grey,
                         ),
-                        onValidate: (value) {},
                       ),
                     ),
-                    const XMargin(5),
-                    const Icon(
+                    XMargin(5),
+                    Icon(
                       CupertinoIcons.sort_up,
                       color: Colors.grey,
                     )
@@ -109,7 +117,7 @@ class WalletView extends StatelessWidget {
                 ),
                 const CryptoListItem(
                     cryptoSymbol: "W",
-                    title: "Waves",
+                    title: "Waves 💙",
                     desc: "5.0004",
                     icon: Icons.check,
                     bgColor: Colors.white),
@@ -124,7 +132,11 @@ class WalletView extends StatelessWidget {
                     title: "US Dollar",
                     desc: "199.24",
                     icon: Icons.check,
-                    bgColor: Colors.green)
+                    bgColor: Colors.green),
+                const YMargin(20),
+                const EmptyCollapseMenu(title: "Hidden tokens (2)"),
+                const YMargin(15),
+                const EmptyCollapseMenu(title: "Suspicious tokens(15)"),
               ],
             ),
           ),

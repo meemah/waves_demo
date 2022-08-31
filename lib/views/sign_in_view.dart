@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:waves/views/custom_widgets/custom_textfield.dart';
 import 'package:waves/views/custom_widgets/spacers.dart';
-import 'package:waves/views/wallet_view.dart';
+import 'package:waves/views/home_view.dart';
 
 class SignInView extends StatelessWidget {
   const SignInView({Key? key}) : super(key: key);
@@ -32,12 +32,10 @@ class SignInView extends StatelessWidget {
                 ],
               ),
               const YMargin(20),
-              CustomTextField(
-                onValidate: (value) {},
+              const CustomTextField(
                 fieldName: "Email",
               ),
-              CustomTextField(
-                onValidate: (value) {},
+              const CustomTextField(
                 fieldName: "Password",
               ),
               Text(
@@ -59,7 +57,7 @@ class SignInView extends StatelessWidget {
                 ),
                 onPressed: () => Navigator.push(context,
                     MaterialPageRoute(builder: (context) {
-                  return const WalletView();
+                  return const HomeView();
                 })),
               )
             ],
